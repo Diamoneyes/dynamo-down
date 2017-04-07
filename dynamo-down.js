@@ -105,6 +105,14 @@ class DynamoIterator extends AbstractIterator {
       }
     }
 
+    if(options.index){
+      this._params.IndexName                 = options.index.IndexName 
+      this._params.KeyConditionExpression    = options.index.KeyConditionExpression
+      this._params.ExpressionAttributeValues = options.index.ExpressionAttributeValues
+      this._params.ExpressionAttributeNames  = options.index.ExpressionAttributeNames
+      delete this._params.KeyConditions
+    }
+    
     this._items = []
     this._cursor = 0
   }
